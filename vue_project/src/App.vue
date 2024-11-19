@@ -10,7 +10,7 @@ export default {
   name: 'App',
   methods: {
     HelloWorld() {
-      this.axios.get('http://localhost:8080/hello')
+      this.axios.get('http://localhost:8080')
         .then((response) => {
           alert(response.data);
         })
