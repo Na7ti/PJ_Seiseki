@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS mysqldb;
+
+USE mysqldb;
+
 -- クラステーブルの作成
 CREATE TABLE class (
     class_id INT PRIMARY KEY,

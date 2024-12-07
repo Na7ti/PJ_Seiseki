@@ -22,9 +22,6 @@ public class ClassEntity {
 	@Column(name = "class_name", nullable = false, length = 50)
 	private String className;
 
-	@Column(name = "teacher_name", length = 50)
-	private String teacherName;
-
 	@OneToMany(mappedBy = "classEntity")
 	@JsonManagedReference
 	private List<Student> students;
@@ -62,7 +59,6 @@ public class ClassEntity {
 		return "ClassEntity{" +
 				"classId=" + classId +
 				", className='" + className + '\'' +
-				", teacherName='" + teacherName + '\'' +
 				'}';
 	}
 }
