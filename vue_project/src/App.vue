@@ -1,23 +1,21 @@
 <template>
   <div id="app">
-    <input @click="HelloWorld" type="button" value="HelloWorld">
+    <AppHeader />
+    <router-view />
   </div>
 </template>
 
 <script>
+import AppHeader from './components/Header.vue'
 
 export default {
   name: 'App',
-  methods: {
-    HelloWorld() {
-      this.axios.get('http://localhost:8080/hello')
-        .then((response) => {
-          alert(response.data);
-        })
-        .catch((e) => {
-          alert(e);
-        });
-    }
+  components: {
+    AppHeader
   }
 }
 </script>
+
+<style>
+/* 必要に応じてスタイルを追加 */
+</style>

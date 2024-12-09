@@ -10,6 +10,16 @@ public class HelloController {
 
 	@RequestMapping("/hello")
 	public String hello() {
-		return "hello java!";
+		return "hello!";
+	}
+
+	@RequestMapping("/java")
+	public String java() {
+		return "java!";
+	}
+
+	@RequestMapping("/vue")
+	public String vue() {
+		return "vue!";
 	}
 }
