@@ -1,21 +1,12 @@
 <template>
-  <div class="container mx-auto">
-    <h1 class="text-2xl font-bold">出席管理アプリ</h1>
-    <StudentList />
-  </div>
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold">出席管理アプリ</h1>
+    </div>
 </template>
 
 <script>
-import StudentList from '../components/StudentList.vue';
-
 export default {
-  name: 'HomePage',
-  components: {
-    StudentList,
-  }
-}
+    name: "HomePage",
+    components: {},
+};
 </script>
-
-<style scoped>
-/* Tailwind CSSを使用するため、特別なスタイルは不要です */
-</style>

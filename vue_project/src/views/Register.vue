@@ -43,6 +43,3 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Tailwind CSSを使用するため、特別なスタイルは不要です */
-</style>
