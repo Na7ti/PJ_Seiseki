@@ -1,10 +1,45 @@
 <template>
     <header class="bg-gray-800 text-white p-4">
-        <h1 class="text-xl">出席管理アプリ</h1>
-        <div>
-            <div><router-link to="/home">ホーム</router-link></div>
-            <div><router-link to="/students">学生一覧</router-link></div>
-            <div><router-link to="/account">アカウント</router-link></div>
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold mb-4">出席管理アプリ</h1>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li>
+                            <router-link
+                                to="/home"
+                                class="hover:text-gray-300 px-3 py-2"
+                            >
+                                ホーム
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link
+                                to="/attendance"
+                                class="hover:text-gray-300 px-3 py-2"
+                            >
+                                科目一覧
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link
+                                to="/students"
+                                class="hover:text-gray-300 px-3 py-2"
+                            >
+                                学生一覧
+                            </router-link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <router-link
+                    to="/account"
+                    class="hover:text-gray-300 px-3 py-2"
+                >
+                    アカウント
+                </router-link>
+            </div>
         </div>
     </header>
 </template>
@@ -14,10 +49,3 @@ export default {
     name: "AppHeader",
 };
 </script>
-
-<style scoped>
-div {
-    display: inline;
-    margin-right: 10px;
-}
-</style>

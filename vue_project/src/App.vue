@@ -2,7 +2,7 @@
     <div id="app">
         <AppHeader />
         <!-- ログインしている場合のみヘッダーを表示 -->
-        <!-- <AppHeader v-if="isLoggedIn" /> -->
+        <AppHeader v-if="isLoggedIn" />
         <router-view />
     </div>
 </template>
