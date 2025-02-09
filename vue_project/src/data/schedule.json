@@ -6,7 +6,8 @@
         {
           "id": 1,
           "name": "AIシステム開発",
-          "hours": 2
+          "hours": 2,
+          "period": 1
         }
       ]
     },
@@ -16,12 +17,14 @@
         {
           "id": 2,
           "name": "AIシステム開発",
-          "hours": 2
+          "hours": 2,
+          "period": 1
         },
         {
           "id": 3,
           "name": "プロジェクトマネジメント",
-          "hours": 2
+          "hours": 2,
+          "period": 2
         }
       ]
     },
@@ -31,12 +34,14 @@
         {
           "id": 4,
           "name": "卒業研究",
-          "hours": 1
+          "hours": 1,
+          "period": 1
         },
         {
           "id": 5,
           "name": "ディープラーニング活用",
-          "hours": 2
+          "hours": 2,
+          "period": 2
         }
       ]
     },
@@ -46,7 +51,8 @@
         {
           "id": 6,
           "name": "ディープラーニング概要",
-          "hours": 2
+          "hours": 2,
+          "period": 1
         }
       ]
     },
@@ -56,7 +62,8 @@
         {
           "id": 7,
           "name": "卒業研究",
-          "hours": 3
+          "hours": 3,
+          "period": 1
         }
       ]
     }

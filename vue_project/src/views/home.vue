@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto p-6">
-        <h1 class="text-2xl font-bold mb-6">出席管理アプリ</h1>
+        <h1 class="text-2xl font-bold mb-6">出席管理</h1>
 
         <div class="bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-4">本日の授業</h2>
