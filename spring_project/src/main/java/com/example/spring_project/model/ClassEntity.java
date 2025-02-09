@@ -22,12 +22,15 @@ public class ClassEntity {
 	@Column(name = "class_name", nullable = false, length = 50)
 	private String className;
 
-	@Column(name = "teacher_name", length = 50)
-	private String teacherName;
+	@Column(name = "admission_year", nullable = false)
+    private int admissionYear;
 
 	@OneToMany(mappedBy = "classEntity")
 	@JsonManagedReference
 	private List<Student> students;
+
+	private boolean isActive;
+
 
 	// Getters and setters
 
@@ -55,6 +58,24 @@ public class ClassEntity {
 		this.students = students;
 	}
 
+	public int getAdmissionYear() {
+        return admissionYear;
+    }
+
+    public void setAdmissionYear(int admissionYear) {
+        this.admissionYear = admissionYear;
+    }
+
+	public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+
+
 	// toString method
 
 	@Override
@@ -62,7 +83,6 @@ public class ClassEntity {
 		return "ClassEntity{" +
 				"classId=" + classId +
 				", className='" + className + '\'' +
-				", teacherName='" + teacherName + '\'' +
 				'}';
 	}
 }

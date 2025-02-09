@@ -1,14 +1,7 @@
 package com.example.spring_project.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")
@@ -16,14 +9,14 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_ID_number", length = 8)
+    @Column(name = "student_id_number")
     private Long studentIdNumber;
 
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
     @Column(name = "class_id", insertable = false, updatable = false)
-    private int classId;
+    private Integer classId;
 
     @Column(name = "mail_address", unique = true, length = 100)
     private String mailAddress;
@@ -35,7 +28,7 @@ public class Student {
     private int admissionYear;
 
     @ManyToOne
-    @JoinColumn(name = "class_id", insertable = false, updatable = false)
+    @JoinColumn(name = "class_id")
     @JsonBackReference
     private ClassEntity classEntity;
 
