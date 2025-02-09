@@ -2,16 +2,20 @@
     <div class="container mx-auto p-6">
         <h1 class="text-2xl font-bold mb-6">出席管理</h1>
 
+        <!-- 本日の授業一覧を表示するカード -->
         <div class="bg-white shadow-lg rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-4">本日の授業</h2>
 
+            <!-- 本日の授業がある場合の表示 -->
             <div v-if="todaysClasses.length > 0" class="space-y-4">
+                <!-- 各授業のカード -->
                 <div
                     v-for="subject in todaysClasses"
                     :key="subject.id"
                     class="bg-blue-50 p-4 rounded-lg border border-blue-200"
                 >
                     <div class="flex justify-between items-center">
+                        <!-- 授業情報の表示部分 -->
                         <div>
                             <h3 class="font-medium text-blue-900">
                                 {{ subject.name }}
@@ -20,6 +24,7 @@
                                 {{ subject.hours }}時間
                             </p>
                         </div>
+                        <!-- 出席ボタン/出席済み表示の切り替え -->
                         <button
                             v-if="!isAttendanceSubmitted(subject.id)"
                             @click="submitAttendance(subject)"
@@ -37,16 +42,19 @@
                 </div>
             </div>
 
+            <!-- 本日の授業がない場合の表示 -->
             <div v-else class="text-center text-gray-500 py-8">
                 本日の授業はありません
             </div>
         </div>
 
+        <!-- 出席完了通知用アラートコンポーネント -->
         <attendance-alert ref="alertComponent" />
     </div>
 </template>
 
 <script>
+// 必要なコンポーネントとデータのインポート
 import AttendanceAlert from "@/components/AttendanceAlert.vue";
 import scheduleData from "@/data/schedule.json";
 
@@ -57,13 +65,18 @@ export default {
     },
     data() {
         return {
+            // 現在の日付を管理
             currentDate: new Date(),
+            // 出席済みの科目IDを保持するSet
             submittedAttendances: new Set(),
         };
     },
     computed: {
+        // 本日の授業一覧を取得する算出プロパティ
         todaysClasses() {
+            // 現在の曜日を取得（0: 日曜日, 1: 月曜日, ...）
             const today = this.currentDate.getDay();
+            // 曜日の数値と文字列のマッピング
             const dayMap = {
                 1: "monday",
                 2: "tuesday",
@@ -71,23 +84,30 @@ export default {
                 4: "thursday",
                 5: "friday",
             };
+            // schedule.jsonから本日の授業を取得（存在しない場合は空配列を返す）
             return scheduleData.schedule[dayMap[today]]?.classes || [];
         },
     },
     methods: {
+        // 出席登録の処理
         submitAttendance(subject) {
+            // 出席済みリストに科目IDを追加
             this.submittedAttendances.add(subject.id);
+            // アラートコンポーネントを通じて通知を表示
             this.$refs.alertComponent.addAlert(
                 subject.name,
                 this.formatDate(this.currentDate)
             );
         },
+        // 出席済みかどうかをチェック
         isAttendanceSubmitted(subjectId) {
             return this.submittedAttendances.has(subjectId);
         },
+        // アラートを閉じる処理
         closeAlert(alertId) {
             this.alerts = this.alerts.filter((alert) => alert.id !== alertId);
         },
+        // 日付のフォーマット処理
         formatDate(date) {
             return date.toLocaleDateString("ja-JP", {
                 year: "numeric",
