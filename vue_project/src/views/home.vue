@@ -87,7 +87,7 @@ export default {
         // 本日の授業一覧を取得する算出プロパティ
         todaysClasses() {
             // 現在の曜日を取得（0: 日曜日, 1: 月曜日, ...）
-            const today = 3;
+            const today = this.currentDate.getDay();
             // 曜日の数値と文字列のマッピング
             const dayMap = {
                 1: "monday",
